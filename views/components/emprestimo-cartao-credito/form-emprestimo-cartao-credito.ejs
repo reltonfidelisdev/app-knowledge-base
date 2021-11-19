@@ -1,3 +1,9 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+
+
 <form class="row g-3 mt-3" [formGroup]="formEmprestimoCC" (ngSubmit)="createProposta()">
     <div class="col-md-12">
         <h1><span class="badge bg-secondary d-grid">Plano de Empréstimo: Cartão de Crédito</span></h1>
@@ -88,3 +94,8 @@
       <button type="button" class="btn btn-success float-end" [routerLink]="['/enviar-proposta-para-digitar']">Enviar para Digitação</button>
     </div>
   </form>
+
+
+</div>
+</body>
+<%- include('../../partials/footer.ejs') %>

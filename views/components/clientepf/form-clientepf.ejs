@@ -1,4 +1,9 @@
-<form class="row g-3 mt-3">
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+
+ <form class="row g-3 mt-3">
     <div class="col-md-12">
         <h1>Dados Pessosais</h1>
     </div>
@@ -41,7 +46,10 @@
           <option>Pós Graduado</option>
         </select>
     </div>
-    <div class="col-md-12 mb-5">
+    <div class="col-md-12 mt-3 mb-5">
         <button type="button" class="btn btn-success float-end" [routerLink]="['/endereco']">Salvar e Avançar</button>
     </div>
 </form>
+</div>
+</body>
+<%- include('../../partials/footer.ejs') %>

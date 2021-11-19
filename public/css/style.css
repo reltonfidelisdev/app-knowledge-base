@@ -9,3 +9,7 @@ body {
 .remove-bordet-top {
   border-top: none !important;
 }
+
+.card-img-change-login-type {
+  max-width: 250px;
+}

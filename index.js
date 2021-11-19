@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 const Pergunta = require("./database/Pergunta");
-const Resposta = require("./database/Resposta")
+const Resposta = require("./database/Resposta");
 
 connection
     .authenticate()
@@ -84,5 +84,80 @@ app.post('/responder', (req, res) => {
     })
 
 })
+
+
+// Rotas Banco
+app.get('/banco', (req, res) => {
+    res.render('components/banco/form-banco.ejs')
+})
+
+// Rotas Cliente PF
+app.get('/cliente-pf', (req, res) => {
+    res.render('components/clientepf/form-clientepf.ejs')
+})
+
+
+// Rotas Cliente PJ
+app.get('/cliente-pj', (req, res) => {
+    res.render('components/clientepj/form-clientepj.ejs')
+})
+
+// Rotas Contato
+app.get('/contato', (req, res) => {
+    res.render('components/contato/form-contato.ejs')
+})
+
+// Rotas Dados Bancarios PF & PJ
+app.get('/dados-bancarios-pf-pj', (req, res) => {
+    res.render('components/dados-bancarios-pf-pj/form-dados-bancarios-pf-pj.ejs')
+})
+
+
+// Rotas Documentos
+app.get('/documento-digital', (req, res) => {
+    res.render('components/documento-digital/form-documento-digital.ejs')
+})
+
+
+// Rotas Emprestimo
+app.get('/emprestimo-cartao-credito', (req, res) => {
+    res.render('components/emprestimo-cartao-credito/form-emprestimo-cartao-credito.ejs')
+})
+
+// Rotas Endereço
+app.get('/endereco', (req, res) => {
+    res.render('components/endereco/form-endereco.ejs')
+})
+
+// Rotas Home
+app.get('/home', (req, res) => {
+    res.render('components/home/home.ejs')
+})
+
+// Rotas Operador
+app.get('/operador', (req, res) => {
+    res.render('components/operador/form-operador.ejs')
+})
+
+// Rotas Produto
+app.get('/produto', (req, res) => {
+    res.render('components/produto/form-produto.ejs')
+})
+
+// Rotas Proposta
+app.get('/proposta', (req, res) => {
+    res.render('components/proposta/tabela-proposta.ejs')
+})
+
+// Erro 404
+app.get('/erro404', (req, res) => {
+    res.render('components/erro404/erro404.ejs')
+})
+
+
+
+
+
+
 
 app.listen(8080,()=>{console.log("App rodando!");});

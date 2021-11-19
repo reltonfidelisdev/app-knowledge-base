@@ -1,3 +1,8 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+
 <form class="row g-3 mt-3">
     <div class="col-md-12">
         <h1>Endereço</h1>
@@ -39,3 +44,6 @@
         <button type="button" class="btn btn-success float-end" [routerLink]="['/contato']">Salvar e Avançar</button>
     </div>
 </form>
+</div>
+</body>
+<%- include('../../partials/footer.ejs') %>
