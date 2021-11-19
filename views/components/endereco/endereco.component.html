@@ -1,0 +1,41 @@
+<form class="row g-3 mt-3">
+    <div class="col-md-12">
+        <h1>Endereço</h1>
+    </div>
+    <div class="col-md-2">
+        <label for="inputCEP" class="form-label">CEP</label>
+        <input type="text" mask="00000-000" class="form-control" id="inputCEP" placeholder="Ex: 00000-000">
+    </div>
+    <div class="col-md-6">
+        <label for="inputLogradouro" class="form-label">Logradouro</label>
+        <input type="text" class="form-control" id="inputLogradouro" placeholder="Ex: Rua da Alegria">
+    </div>
+    <div class="col-md-1">
+        <label for="inputNumero" class="form-label">Número</label>
+        <input type="text" class="form-control" id="inputNumero">
+    </div>
+    <div class="col-md-3">
+        <label for="inputComplemento" class="form-label">Complemento</label>
+        <input type="text" class="form-control" id="inputComplemento">
+    </div>
+    <div class="col-md-4">
+        <label for="inputBairro" class="form-label">Bairro</label>
+        <input type="text" class="form-control" id="inputBairro">
+    </div>
+    <div class="col-md-4">
+        <label for="inputCidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="inputCidade">
+    </div>
+    <div class="col-md-4">
+        <label for="inputEstado" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="inputEstado">
+    </div>
+    <div class="col-md-12">
+        <label for="inputPontoReferencia" class="form-label">Ponto de Referencia</label>
+        <input type="text" class="form-control" id="inputPontoReferencia">
+    </div>
+    <div class="col-md-12 mb-5">
+        <button type="button" class="btn btn-warning float-start" [routerLink]="['/clientepf']">Voltar e Editar</button>
+        <button type="button" class="btn btn-success float-end" [routerLink]="['/contato']">Salvar e Avançar</button>
+    </div>
+</form>

@@ -1,0 +1,69 @@
+<form class="row g-3 mt-3">
+    <div class="col-md-12">
+        <h1>Status das Propostas</h1>
+    </div>
+    <div class="col-md-3">
+        <label for="inputDataEntrada" class="form-label">Data de Entrada</label>
+        <input type="text" class="form-control" disabled id="inputDataEntrada" placeholder="26/08/2021">
+    </div>
+
+    <div class="col-md-3">
+        <label for="inputDataRetorno" class="form-label">Data de Retorno</label>
+        <input type="text" class="form-control" disabled id="inputDataRetorno" placeholder="26/08/2021">
+    </div>
+    <div class="col-md-6">
+        <label for="inputSexo" class="form-label">Buscar por CPF ou CNPJ</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" mask="CPF_CNPJ" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar Proposta</button>
+          </div>
+    </div>
+    <div class="col-md12">
+        <table class="table table-striped table-hover">
+            <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Status</th>
+            <th scope="col">Data Digitação</th>
+            <th scope="col">Nome do Cliente</th>
+            <th class="text-end" scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <th><span class="badge bg-secondary">Enviada</span></th>
+              <td>01/08/2021</td>
+              <td>Relton Fidelis</td>
+              <td>
+                  <button type="button" class="btn btn-success btn-sm m-lg-1 float-end"><i class="fa fa-eye"></i> Visualizar Proposta</button>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <th><span class="badge bg-warning">Digitando</span></th>
+              <td>01/08/2021</td>
+              <td>Diogo Laureano</td>
+              <td>
+                <button type="button" class="btn btn-success btn-sm m-lg-1 float-end"><i class="fa fa-eye"></i> Visualizar Proposta</button>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <th><span class="badge bg-danger">Recusada</span></th>
+              <td>01/08/2021</td>
+              <td>Relton Fidelis</td>
+              <td>
+                <button type="button" class="btn btn-success btn-sm m-lg-1 float-end"><i class="fa fa-eye"></i> Visualizar Proposta</button>
+            </td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <th><span class="badge bg-success">Aprovada</span></th>
+              <td>01/08/2021</td>
+              <td>Diogo Laureano</td>
+              <td>
+                <button type="button" class="btn btn-success btn-sm m-lg-1 float-end"><i class="fa fa-eye"></i> Visualizar Proposta</button>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</form>

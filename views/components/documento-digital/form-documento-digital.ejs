@@ -1,0 +1,58 @@
+<div class="col-md-12">
+    <h1>Documentos digitais</h1>
+    <span class="text-muted"> </span>
+    <h6>Anexar documentos - Proposta: <span class="badge bg-secondary">1004514</span></h6>
+</div>
+
+<form action="" class="col-md-12 row g-3 mt-3">
+    <div class="col-md-6">
+        <label for="inputDocumento" class="form-label">Faça Upload do documento</label>
+        <input class="form-control" type="file" id="inputDocumento">
+    </div>
+    <div class="col-md-5">
+        <label for="inputTipoDocumento" class="form-label">Tipo de Documento</label>
+        <select id="inputTipoDocumento" class="form-select">
+          <option selected>Selecione ...</option>
+          <option>RG do Cliente</option>
+          <option>CPF do Cliente</option>
+          <option>Carteira de Habilitação</option>
+          <hr class="dropdown-divider">
+          <option>Extrato INSS</option>
+          <option>Contra cheque</option>
+          <option>Comprovante bancário</option>
+          <hr class="dropdown-divider">
+          <option>RG do Rogado</option>
+          <option>CPF do Rogado</option>
+          <hr class="dropdown-divider">
+          <option>Foto do Cliente com Contrato Assinado</option>
+          <option>Contrato Assinado</option>
+        </select>
+    </div>
+    <div class="col-md-1">
+        <button type="submit" class="ntb btn btn-primary float-end" click="salvarProposta()">Anexar</button>
+    </div>
+</form>
+<div class="col-md-12">
+    <table class="table table-striped table-hover">
+        <thead>
+      <tr>
+        <th scope="col">Documento</th>
+        <th scope="col">Status</th>
+        <th scope="col">Data Digitação</th>
+        <th scope="col">Nome do Cliente</th>
+        <th class="text-end" scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let digitalFilesTables of digitalFilesTable">
+          <th scope="row">{{ digitalFilesTables.label }}</th>
+          <th><span [class]="digitalFilesTables.statusClass">{{ digitalFilesTables.statusLabel }}</span></th>
+          <td>{{ digitalFilesTables.dataEnvio }}</td>
+          <td>{{ digitalFilesTables.sendedBy }}</td>
+          <td>
+              <button class="btn btn-success btn-sm m-lg-1 float-end"><i class="fa fa-eye"></i> Visualizar</button>
+        </tr>
+    </tbody>
+  
+    </table>
+</div>

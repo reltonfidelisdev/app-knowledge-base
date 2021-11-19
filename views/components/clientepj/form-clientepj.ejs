@@ -1,0 +1,24 @@
+<form class="row g-3 mt-3">
+    <div class="col-md-12">
+        <h1>Dados Empresariais</h1>
+      </div>
+    <div class="col-md-6">
+      <label for="inputCNPJ" class="form-label">CNPJ</label>
+      <input type="text" class="form-control" mask="00.000.000/0000-00" id="inputCNPJ" placeholder="Ex: 98.765.432/0001-23">
+    </div>
+    <div class="col-md-6">
+        <label for="inputIE" class="form-label">Inscrição Estadual</label>
+      <input type="text" class="form-control" id="inputIE" placeholder="Ex: 1234567-89">
+    </div>
+    <div class="col-12">
+        <label for="inputRazaoSocial" class="form-label">Razão Social</label>
+        <input type="text" class="form-control" id="inputRazaoSocial">
+    </div>
+    <div class="col-12">
+        <label for="inputNomeFantasia" class="form-label">Nome Fantasia</label>
+        <input type="text" class="form-control" id="inputNomeFantasia">
+    </div>
+    <div class="col-md-12 mb-5">
+      <button type="button" class="btn btn-success float-end" [routerLink]="['/endereco']">Salvar e Avançar</button>
+    </div>
+  </form>

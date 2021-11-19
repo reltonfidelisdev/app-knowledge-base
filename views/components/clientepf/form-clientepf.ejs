@@ -1,0 +1,47 @@
+<form class="row g-3 mt-3">
+    <div class="col-md-12">
+        <h1>Dados Pessosais</h1>
+    </div>
+    <div class="col-md-6">
+        <label for="inputCPF" class="form-label">CPF do Cliente</label>
+        <input type="text" mask="000.000.000-00" class="form-control" id="inputCPF" placeholder="Ex: 987.654.321-00">
+    </div>
+    <div class="col-md-6">
+        <label for="inputRG" class="form-label">RG</label>
+        <input type="text" class="form-control" id="inputRG" placeholder="Ex: 98.765.432-1">
+    </div>
+    <div class="col-12">
+        <label for="inputNomeCompleto" class="form-label">Nome Completo</label>
+        <input type="text" class="form-control" id="inputNomeCompleto">
+    </div>
+    <div class="col-md-4">
+        <label for="inputDataNascimento" class="form-label">Data de Nascimento</label>
+        <input type="text" mask="d0/M0/0000" class="form-control" id="inputDataNascimento" placeholder="EX: 26/08/1986">
+    </div>
+    <div class="col-md-4">
+        <label for="inputSexo" class="form-label">Sexo</label>
+        <select id="inputSexo" class="form-select">
+          <option selected>Selecione ...</option>
+          <option>Feminino</option>
+          <option>Masculino</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="inputGrauEscolaridade" class="form-label">Grau de Escolaridade</label>
+        <select id="inputGrauEscolaridade" class="form-select">
+          <option selected>Selecione ...</option>
+          <option>Não Alfabetizado</option>
+          <option>Ensino Fundamental Incompleto</option>
+          <option>Ensino Fundamental Completo</option>
+          <option>Ensino Médio Incompleto</option>
+          <option>Ensino Médio Completo</option>
+          <option>Superior Incompleto</option>
+          <option>Superior Completo</option>
+          <option>Pós Graduação Incompleto</option>
+          <option>Pós Graduado</option>
+        </select>
+    </div>
+    <div class="col-md-12 mb-5">
+        <button type="button" class="btn btn-success float-end" [routerLink]="['/endereco']">Salvar e Avançar</button>
+    </div>
+</form>

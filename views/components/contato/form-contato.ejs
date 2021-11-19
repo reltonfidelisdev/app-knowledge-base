@@ -1,0 +1,33 @@
+<form class="row g-3 mt-3">
+    <div class="col-md-12">
+        <h1>Informações de Contato</h1>
+      </div>
+      <div class="col-md-6">
+        <label for="inputTelefoneFixo" class="form-label">Telefone Fixo</label>
+        <input type="text" mask="(00) 0000-0000" class="form-control" id="inputTelefoneFixo">
+      </div>
+      <div class="col-md-6">
+        <label for="inputTelefoneCelular" class="form-label">Telefone Celular</label>
+        <input type="text" mask="(00) 0.0000-0000" class="form-control" id="inputTelefoneCelular">
+      </div>
+      <div class="col-md-6">
+        <label for="inputTelefoneComercial" class="form-label">Telefone Comercial</label>
+        <input type="text" mask="(00) 0000-0000 || (00) 0.0000-0000" class="form-control" id="inputTelefoneComercial">
+      </div>
+      <div class="col-md-6">
+        <label for="inputTelefoneRecados" class="form-label">Telefone de Recados</label>
+        <input type="text" mask="(00) 0000-0000 || (00) 0.0000-0000" class="form-control" id="inputTelefoneRecados">
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmailPrincipal" class="form-label">Email Principal</label>
+        <input type="email" email class="form-control" id="inputEmailPrincipal">
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmailSecundario" class="form-label">Email Secundario</label>
+        <input type="email" email class="form-control" id="inputEmailSecundario">
+      </div>      
+    <div class="col-md-12 mb-5">
+      <button type="button" class="btn btn-warning float-start" [routerLink]="['/endereco']">Voltar e Editar</button>
+      <button type="button" class="btn btn-success float-end" [routerLink]="['/dados-bancarios-pf-pj']">Salvar e Avançar</button>
+    </div>
+  </form>

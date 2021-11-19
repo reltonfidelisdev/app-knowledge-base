@@ -1,0 +1,42 @@
+<form class="row g-3 mt-3">
+    <div class="col-md-12">
+        <h1>Dados Bancários</h1>
+      </div>
+      <div class="col-md-6">
+        <label for="inputBanco" class="form-label">Banco</label>
+        <select class="form-select" id="inputBanco" aria-label="Selecione o Banco">
+            <option selected>Selecione o Banco</option>
+            <option value="1">Banco do Brasil</option>
+            <option value="2">Caixa Econômica Federal</option>
+            <option value="3">Bradesco</option>
+            <option value="4">Itaú</option>
+          </select>
+      </div>
+      <div class="col-md-4">
+        <label for="inputTipoConta" class="form-label">Tipo de Conta</label>
+        <select class="form-select" id="inputTipoConta" aria-label="Tipo de Conta">
+            <option selected>Selecione o Tipo de Conta</option>
+            <option value="1">Conta Corrente</option>
+            <option value="2">Conta Poupança</option>
+            <option value="3">Conta Salário</option>
+            <option value="4">Conta Conjunta</option>
+            <option value="4">Conta Pessoa Jurídica</option>
+          </select>
+      </div>
+    <div class="col-md-2">
+        <label for="inputAgencia" class="form-label">Agência</label>
+      <input type="text" class="form-control" id="inputAgencia">
+    </div>
+    <div class="col-3">
+        <label for="inputConta" class="form-label">Conta</label>
+        <input type="text" class="form-control" id="inputConta">
+    </div>
+    <div class="col-1">
+        <label for="inputDigitoConta" class="form-label">Dígito</label>
+        <input type="text" class="form-control" id="inputDigitoConta">
+    </div>
+    <div class="col-md-12 padding-footer">
+      <button type="button" class="btn btn-warning float-start" [routerLink]="['/contato']">Voltar e Editar</button>
+      <button type="button" class="btn btn-success float-end" [routerLink]="['/plano-emprestimo-cartao-credito']">Salvar e Avançar</button>
+    </div>
+  </form>
