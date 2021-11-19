@@ -1,4 +1,4 @@
-// Rename tis file to database.js and configure with your database, user, password 
+// Rename this file to database.js and configure with your database, user, password 
 // And host if necessary
 const Sequelize = require("sequelize");
 
