@@ -1,0 +1,26 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div style="height: 200px;" class="col-md-6 offset-md-3 text-center">.
+                
+                    <form class="row md-12" action="/client/cpf/" method="POST">
+                           <h1>Pesquisa por CPF</h1>
+                           <p>Por favor, informe os dígitos e clique em procurar cadastro</p>
+                           <div class="col-md-12">
+                               <div class="input-group mb-3">
+                                   <input type="text" value="074.878.844-14" name="cpf" class="form-control" placeholder="Informe apenas os números" aria-label="Informe apenas os números" aria-describedby="button-addon2">
+                                   <button type="submit" class="btn btn-success" type="button" id="button-addon2">Procurar</button>
+                                 </div>
+                           </div>
+                        </form>
+                        
+                </div>
+            </div>
+        </div>
+
+</div>
+</body>
+<%- include('../../partials/footer.ejs') %>

@@ -1,0 +1,39 @@
+
+
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+        <form class="row md-12" action="" method="POST">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Ação</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                          <% cliente.forEach(c => { %>
+                      
+                              <tr>
+                                  <th scope="row"><%= c.nomeCompleto %></th>
+                                  <td><%= c.nomeCompleto %></td>
+                                  <td><%= c.cpf %></td>
+                                  <td>
+                                    <a href="/client/uid/<%= c.uid %>" class="btn btn-primary">Primary</a>
+                                  </td>
+                              </tr>
+                              <% }) %>
+                  </table>
+                 </tbody>
+            </div>
+        </div>
+
+</div>
+<%- console.log(cliente) %>
+</body>
+<%- include('../../partials/footer.ejs') %>

@@ -65,7 +65,7 @@
         <label for="inputTabelaDeCalculo" class="form-label">Tabela de Cálculo</label>
         <select formControlName="tabelaDeCalculo" id="inputTabelaDeCalculo" class="form-select">
           <option selected >Selecione ...</option>
-          <option *ngFor="let listaTabela of listaTabelas" [value]="listaTabela.percent" >{{listaTabela.label}} = {{listaTabela.percent}} %</option>
+          <option value='3.50' >Tabela 5 = 3.50%</option>
         </select>
     </div>
     <div class="col-md-2">
@@ -74,7 +74,7 @@
     </div>
     <div class="col-md-2">
         <label for="labelLimiteNecessario" class="form-label">Limite Necessário</label>
-        <h3><span class="badge bg-secondary col-md-12 text-start">R$ {{limiteNecessario}}</span></h3>
+        <h3><span id="limiteN" class="badge bg-secondary col-md-12 text-start">R$ </span></h3>
     </div>
     <div class="col-md-3">
         <label for="labelValorDoEmprestimo" class="form-label">Valor a ser Liberado</label>
@@ -83,7 +83,7 @@
     <div class="col-md-5">
       <label for="labelTaxaDeJuros" class="form-label">Calcular e Salvar Proposta</label>
       <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button" (click)="calculaValor()">Calcular Agora</button>
+        <button class="btn btn-primary" type="button" onclick="calculaValor()">Calcular Agora</button>
         <button class="btn btn-success" type="button" (click)="createProposta()">Salvar Proposta</button>
       </div></div>
     <div class="col-md-12">
@@ -95,7 +95,36 @@
     </div>
   </form>
 
+  <script>
+    
+ function calculaValor(){
+  const listaTabelas = [
+        {label: "Tabela 1", percent: 1.99, }, {label: "Tabela 2", percent: 2.65, },
+        {label: "Tabela 3", percent: 2.89, }, {label: "Tabela 4", percent: 3.19, },
+        {label: "Tabela 5", percent: 3.50, }, {label: "Tabela 6", percent: 4.05, },
+        {label: "Tabela 7", percent: 4.75, }, {label: "Tabela 8", percent: 5.25, },
+        {label: "Tabela 9", percent: 6.25, }, {label: "Tabela 10", percent: 7.99, }
+       ];
 
+var valorDoEmprestimo = 15000.55
+console.log(valorDoEmprestimo)
+const tabelaDeCalculo = listaTabelas[0];
+
+let valorSolicitado = parseFloat(valorDoEmprestimo);
+let taxaDeCalculo = tabelaDeCalculo / 100;
+let baseDivisor = Number;
+let baseDivisorUm = (Math.pow((1 + taxaDeCalculo), 12) -1);
+let baseDivisorDois = Math.pow((1 + taxaDeCalculo), 12) * taxaDeCalculo;
+
+baseDivisor = baseDivisorUm / baseDivisorDois;
+let vlrParcelaMensal = (valorSolicitado / baseDivisor)*1000;
+valorParcelaMensal = parseFloat(vlrParcelaMensal.toFixed(2))
+let lmtNecessario = (vlrParcelaMensal * 12);
+limiteNecessario = parseFloat(lmtNecessario.toFixed(2));
+valorLiberado = valorDoEmprestimo;
+
+}
+</script>
 </div>
 </body>
 <%- include('../../partials/footer.ejs') %>

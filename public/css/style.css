@@ -13,3 +13,15 @@ body {
 .card-img-change-login-type {
   max-width: 250px;
 }
+
+.stick-on-button {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding-left: 5vh;
+  padding-right: 5vw;
+}
+
+.footer-logo {
+  width: 150px;
+}

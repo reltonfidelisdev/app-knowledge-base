@@ -1,0 +1,54 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+
+
+<form class="row g-3 mt-3" method="post" action="/proposta/simular/calculo">
+    <div class="col-md-2">
+        <label for="inputValorCredito" class="form-label">Valor Solicitado</label>
+      <input type="text" value="1000,00" name="valorDoEmprestimo" class="form-control" id="inputValorCredito"  placeholder="Ex: 2000,00">
+    </div>
+    <div class="col-md-2">
+        <label for="inputTabelaDeCalculo" class="form-label">Tabela de Cálculo</label>
+        <select name="tabelaDeCalculo" id="inputTabelaDeCalculo" class="form-select">
+          <option  >Selecione ...</option>
+          <option selected value='3.50' >Tabela 5 = 3.50%</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="labelParcelaMensal" class="form-label">Parcela Mensal em 12x</label>
+    <h3><span id="campoValorParcelaMensal" class="badge bg-secondary col-md-12 text-start">R$ 
+        <% if(valorParcelaMensal) { %>
+            <%= valorParcelaMensal %>
+        <% } %>    
+    </span></h3>
+    </div>
+    <div class="col-md-2">
+        <label for="labelLimiteNecessario" class="form-label">Limite Necessário</label>
+        <h3><span id="limiteN" class="badge bg-secondary col-md-12 text-start">R$ 
+            <% if(limiteNecessario) { %>
+                <%= limiteNecessario %>
+            <% } %>
+        </span></h3>
+    </div>
+    <div class="col-md-3">
+        <label for="labelValorDoEmprestimo" class="form-label">Valor a ser Liberado</label>
+        <h3><span class="badge  bg-secondary col-md-12 text-start">R$ 
+        <% if(valorLiberado) { %>
+            <%= valorLiberado %>
+        <% } %>
+        </span></h3>
+    </div>
+    <div class="col-md-5">
+      <label for="labelTaxaDeJuros" class="form-label">Calcular e Salvar Proposta</label>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="submit">Calcular Agora</button>
+
+
+      </div></div>
+  </form>
+
+</div>
+</body>
+<%- include('../../partials/footer.ejs') %>

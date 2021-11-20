@@ -1,0 +1,29 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container ">
+
+        <div class="card" id="formulario-pergunta">
+            <form action="/responder" method="POST">
+            <div class="card-header">
+                <h4 class="card-title"><%= arrayCliente.nomeCompleto %></h4>
+            </div>
+            <div class="card-body">
+                    <p>CPF: <%= arrayCliente.cpf %></p>
+                    <hr>
+                    <div class="mb-3"><br />
+                      <label for="descricao" class="form-label">Envie sua resposta</label>
+                      <textarea name="corpo" class="form-control" id="" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input type="hidden" name="perguntaId" value="<%= arrayCliente.id %>">
+                    <button type="submit" class="btn btn-primary">Enviar Resposta</button>
+                </div>
+            </div>
+        </form>
+      
+  
+    </div>
+</body>
+<%- include('../../partials/footer.ejs') %>

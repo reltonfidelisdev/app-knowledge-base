@@ -1,9 +1,15 @@
 const express = require("express");
 const app = express();
+// App routes
+const RouterClientPF = require("./routes/clientepf.router")
+const RouterProposta = require("./routes/proposta.router")
+// App routes
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 const Pergunta = require("./database/Pergunta");
 const Resposta = require("./database/Resposta");
+const ClientePF = require("./database/CilentePF")
+
 
 connection
     .authenticate()
@@ -91,14 +97,12 @@ app.get('/banco', (req, res) => {
     res.render('components/banco/form-banco.ejs')
 })
 
-// Rotas Cliente PF
-app.get('/cliente-pf', (req, res) => {
-    res.render('components/clientepf/form-clientepf.ejs')
-})
+
 
 
 // Rotas Cliente PJ
-app.get('/cliente-pj', (req, res) => {
+app.get('/cadastrar-cliente-pj', (req, res) => {
+
     res.render('components/clientepj/form-clientepj.ejs')
 })
 
@@ -119,10 +123,8 @@ app.get('/documento-digital', (req, res) => {
 })
 
 
-// Rotas Emprestimo
-app.get('/emprestimo-cartao-credito', (req, res) => {
-    res.render('components/emprestimo-cartao-credito/form-emprestimo-cartao-credito.ejs')
-})
+// Rotas Proposta
+
 
 // Rotas Endereço
 app.get('/endereco', (req, res) => {
@@ -149,6 +151,35 @@ app.get('/proposta', (req, res) => {
     res.render('components/proposta/tabela-proposta.ejs')
 })
 
+
+
+// Encontra cliente pelo UID
+app.get('/cliente/:uid', async (req, res) => {
+    const uid = req.params.uid;
+
+    await ClientePF.findOne(
+        {where: { uid : uid }}
+    ).then(clientepf => {
+        if(clientepf != undefined){ // Pergunta encontrada
+
+            //console.log(clientepf)
+            res.render("components/clientepf/cliente-info.ejs", {
+                arrayCliente: clientepf
+            })
+
+        }else{ // Não encontrada
+            res.redirect("/")
+        }
+    })
+})
+
+
+
+  
+
+
+
+
 // Erro 404
 app.get('/erro404', (req, res) => {
     res.render('components/erro404/erro404.ejs')
@@ -158,6 +189,9 @@ app.get('/erro404', (req, res) => {
 
 
 
+// Routes
+app.use('/client/', RouterClientPF)
+app.use('/proposta/', RouterProposta)
 
 
 app.listen(8080,()=>{console.log("App rodando!");});
