@@ -2,6 +2,7 @@ const ClientPFService = require('../services/clientepf.services')
 
 const create = async (req, res, next) => {
     const { nomeCompleto, cpf, rg, dataNascimento, sexo, grauEscolaridade } = req.body
+        
     
     const clientePF = {
         "nomeCompleto": nomeCompleto,
@@ -16,10 +17,16 @@ const create = async (req, res, next) => {
 
     try {
         await ClientPFService.create(clientePF, page, limit)
-        res.redirect('/cliente-tabela')
-
+        message = "Cliente cadastrado com sucesso!"
+        res.render("components/feedback/feedback.ejs",({
+            message:message
+        }))
     } catch (e) {
-        return res.status(400).json({ status: 400, message: e.message });
+        //return res.status(400).json({ status: 400, message: e.message });
+        message = "Erro ao tentar cadastrar o cliente!"
+        res.render("components/feedback/feedback.ejs",({
+            message:message
+        }))
     }
 }
 

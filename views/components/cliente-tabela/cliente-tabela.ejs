@@ -17,19 +17,18 @@
                       </tr>
                   </thead>
                   <tbody>
-                          <% cliente.forEach(c => { %>
-                      
-                              <tr>
-                                  <th scope="row"><%= c.nomeCompleto %></th>
-                                  <td><%= c.nomeCompleto %></td>
-                                  <td><%= c.cpf %></td>
-                                  <td>
-                                    <a href="/client/uid/<%= c.uid %>" class="btn btn-primary">Primary</a>
-                                  </td>
-                              </tr>
-                              <% }) %>
-                  </table>
-                 </tbody>
+                    <% cliente.forEach(c => { %>  
+                    <tr>
+                        <th scope="row"><%= c.nomeCompleto %></th>
+                        <td><%= c.nomeCompleto %></td>
+                         <td><%= c.cpf %></td>
+                        <td>
+                        <a href="/client/uid/<%= c.uid %>" class="btn btn-primary">Primary</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    </tbody>
+            </table>
             </div>
         </div>
 

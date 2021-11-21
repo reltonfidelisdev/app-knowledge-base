@@ -3,6 +3,8 @@ const router = express.Router();
 const { body } = require('express-validator');
 const ClientePF = require("../database/CilentePF")
 
+const listaEstadosBrasileiros = require('../database/estados-brasileiros')
+
 var ClientePFController = require('../controllers/clientepf.controller')
 
 // Pesquisa todos os clientes
@@ -20,16 +22,18 @@ router.get('/all/', async (req, res)  =>  {
 
 // Encontra cliente pelo CPF
 router.post('/cpf/', async (req, res) => {
+    console.log(listaEstadosBrasileiros)
     const cpf = req.body.cpf;
 
     await ClientePF.findOne(
         {where: { cpf : cpf }}
     ).then(clientepf => {
         if(clientepf != undefined){ // Pergunta encontrada
-
+            
             //console.log(clientepf)
             res.render("components/clientepf/cliente-info.ejs", {
-                arrayCliente: clientepf
+                arrayCliente: clientepf,
+                arrlistaEstadosBrasileiros: listaEstadosBrasileiros
             })
 
         }else{ // Não encontrada

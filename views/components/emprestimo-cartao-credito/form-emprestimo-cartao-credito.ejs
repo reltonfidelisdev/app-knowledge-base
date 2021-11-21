@@ -4,93 +4,83 @@
     <div class="container">
 
 
-<form class="row g-3 mt-3" [formGroup]="formEmprestimoCC" (ngSubmit)="createProposta()">
+<form class="row g-3 mt-3" >
     <div class="col-md-12">
         <h1><span class="badge bg-secondary d-grid">Plano de Empréstimo: Cartão de Crédito</span></h1>
       </div>
       <div class="col-4">
         <label for="labelNomeCompleto" class="form-label">Nome Completo</label>
-        <input type="text" formControlName="nomeCompleto" class="form-control" id="labelNomeCompleto" placeholder="Relton Fidelis">
+        <h4><span class="badge  bg-secondary col-md-12 text-start">Relton Lima</span></h4>
     </div>
     <div class="col-md-2">
       <label for="labelCPF" class="form-label">CPF</label>
-      <input type="text" mask="CPF_CNPJ" formControlName="cpf" class="form-control" id="labelCPF" placeholder="987.654.321-00">
+      <h4><span class="badge  bg-secondary col-md-12 text-start">074.878.844.14</span></h4>
     </div>
     <div class="col-md-2">
       <label for="labelRG" class="form-label">RG</label>
-      <input type="text" formControlName="rg" class="form-control" id="labelRG" placeholder="Ex: 7.654.321-0">
+      <h4><span class="badge  bg-secondary col-md-12 text-start">53.921.490-5</span></h4>
     </div>
     <!-- Endereço -->
     <div class="col-md-2">
       <label for="inputListaEstados" class="form-label">Estado</label>
-      <select formControlName="estado" id="inputListaEstados" class="form-select">
-        <option selected>Selecione ...</option>
-        <option *ngFor="let listaEstado of listaEstados" [value]="listaEstado.sigla"> {{ listaEstado.nome + " = " + listaEstado.sigla}}  </option>
-      </select>
+      <h4><span class="badge  bg-secondary col-md-12 text-start">Pernambuco</span></h4>
   </div>
   <div class="col-md-2">
     <label for="inputCidade" class="form-label">Cidade</label>
-  <input type="text" formControlName="cidade" thousandSeparator="," class="form-control" id="inputCidade"  placeholder="Ex: Recife">
+    <h4><span class="badge  bg-secondary col-md-12 text-start">Recife - PE</span></h4>
 </div>
 <!--Fim Endereço  -->
     <!-- Dados Bancarios -->
     <div class="col-md-2">
       <label for="inputCidade" class="form-label">Agência e dígito</label>
-    <input type="text" formControlName="agenciaComDigito" class="form-control" id="inputCidade"  placeholder="Ex: 0000321-0">
+      <h4><span class="badge  bg-secondary col-md-12 text-start">12545-0</span></h4>
   </div>
   
   <div class="col-md-2">
     <label for="inputNumeroConta" class="form-label">Conta</label>
-  <input type="text" formControlName="numeroConta" class="form-control" id="inputNumeroConta"  placeholder="Ex: 0123">
+    <h4><span class="badge  bg-secondary col-md-12 text-start">0001234-9</span></h4>
 </div>
         <div class="col-md-2">
         <label for="inputListaBanco" class="form-label">Banco</label>
-        <select id="inputListaBanco" formControlName="codigoBanco" class="form-select">
-          <option selected>Selecione ...</option>
-          <option *ngFor="let listaBanco of listaBancos" [value]="">{{ listaBanco.value + " - " + listaBanco.label }}</option>
-        </select>
+        <h4><span class="badge  bg-secondary col-md-12 text-start">Inter</span></h4>
     </div>
     <div class="col-md-2">
       <label for="inputTipoConta" class="form-label">Tipo de Conta</label>
-    <input type="text" formControlName="tipoConta" class="form-control" id="inputTipoConta"  placeholder="Ex: Corrente PJ">
+      <h4><span class="badge  bg-secondary col-md-12 text-start">Corrente</span></h4>
   </div>
   <!-- FIm Dados Bancarios -->
   <!-- Parcelamento -->
   <!-- valorDoEmprestimo: number, limiteNecessario: number, status: string, parcelaMensal: number, tabelaDeCalculo: number, quantidadeDeParcelas : number  -->
     <div class="col-md-2">
         <label for="inputValorCredito" class="form-label">Valor Solicitado</label>
-      <input mask="separator.2" thousandSeparator="." type="text" formControlName="valorDoEmprestimo" class="form-control" id="inputValorCredito"  placeholder="Ex: 20.0000,00">
+        <h4><span class="badge  bg-secondary col-md-12 text-start">R$ 12000,00</span></h4>
     </div>
     <div class="col-md-2">
         <label for="inputTabelaDeCalculo" class="form-label">Tabela de Cálculo</label>
-        <select formControlName="tabelaDeCalculo" id="inputTabelaDeCalculo" class="form-select">
-          <option selected >Selecione ...</option>
-          <option value='3.50' >Tabela 5 = 3.50%</option>
-        </select>
+        <h4><span class="badge  bg-secondary col-md-12 text-start">Tabela 1</span></h4>
     </div>
     <div class="col-md-2">
-        <label for="labelParcelaMensal" class="form-label">Parcela Mensal em 12x</label>
-    <h3><span id="campoValorParcelaMensal" class="badge bg-secondary col-md-12 text-start">R$ {{valorParcelaMensal}} </span></h3>
+        <label for="labelParcelaMensal" class="form-label">Parcela (12x)</label>
+    <h3><span id="campoValorParcelaMensal" class="badge bg-secondary col-md-12 text-start">R$ 1.134,0</span></h3>
     </div>
     <div class="col-md-2">
         <label for="labelLimiteNecessario" class="form-label">Limite Necessário</label>
-        <h3><span id="limiteN" class="badge bg-secondary col-md-12 text-start">R$ </span></h3>
+        <h3><span id="limiteN" class="badge bg-secondary col-md-12 text-start">R$ 1591.52</span></h3>
     </div>
     <div class="col-md-3">
-        <label for="labelValorDoEmprestimo" class="form-label">Valor a ser Liberado</label>
-        <h3><span class="badge  bg-secondary col-md-12 text-start">R$ {{valorLiberado}}</span></h3>
+        <label for="labelValorDoEmprestimo" class="form-label">Valor a liberar</label>
+        <h3><span class="badge  bg-secondary col-md-12 text-start">R$ 12.000,00</span></h3>
     </div>
     <div class="col-md-5">
       <label for="labelTaxaDeJuros" class="form-label">Calcular e Salvar Proposta</label>
       <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button" onclick="calculaValor()">Calcular Agora</button>
         <button class="btn btn-success" type="button" (click)="createProposta()">Salvar Proposta</button>
       </div></div>
     <div class="col-md-12">
-      <app-documento-digital></app-documento-digital>
     </div>
+
     <div class="col-md-12 padding-footer">
-      <button type="button" class="btn btn-warning float-start" [routerLink]="['/dados-bancarios-pf-pj']">Voltar e Editar</button>
+      <button type="button" class="btn btn-warning float-start">Recalcular</button>
       <button type="button" class="btn btn-success float-end" [routerLink]="['/enviar-proposta-para-digitar']">Enviar para Digitação</button>
     </div>
   </form>

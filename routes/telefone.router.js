@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const telefoneController = require("../controllers/telefone.controller");
+
 router.get('/', (req, res) => {
     res.send("Rota principal");
 })
@@ -17,4 +19,5 @@ router.get('/name/:name', (req, res) => {
     res.send("Procurar por nome")
 })
 
+router.post('/create/', telefoneController.create )
 module.exports = router;

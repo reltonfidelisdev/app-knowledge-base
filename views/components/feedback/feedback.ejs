@@ -1,0 +1,27 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../menu/menu.ejs') %>
+    <div class="container">
+
+<div class="col-md-12 g-4 mt-5">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Mensagem do sistema:</h5>
+          
+          <%= message ? message : '' %>
+          
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalLoginGerenteRegional">Acessar Módulo Gestor</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%- include('../modal-popups/login-modal-popups.ejs') %>
+  </div>
+
+</div>
+</body>
+<%- include('../../partials/footer.ejs') %>
