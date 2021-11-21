@@ -1,11 +1,11 @@
 const Telefone = require('../database/Telefone');
 
-const create = async (telefoneCliente, page, limit) => {
+const create = (telefoneCliente, page, limit) => {
 
-    const {numero, contactType, ownerToken} = telefoneCliente;
+    const {celularPrincipal, fixoProprio, fixoRecado, ownerToken} = telefoneCliente;
 
-    await Telefone.create({
-        numero, contactType, ownerToken
+     Telefone.create({
+        celularPrincipal, fixoProprio, fixoRecado, ownerToken
     }).then(() => {
         console.log('Telefone cadastrado')
     }).catch((errMessage) => {

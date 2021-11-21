@@ -10,8 +10,8 @@ var ClientePFController = require('../controllers/clientepf.controller')
 // Pesquisa todos os clientes
 router.get('/all/', async (req, res)  =>  {
 
-    const clientepf = ClientePF.findAll({ raw: true, organise:[
-        ['id', 'ASC']
+    const clientepf = ClientePF.findAll({ order:[
+        ['id', 'DESC']
     ]}).then(clientepf => {
         res.render('components/cliente-tabela/cliente-tabela.ejs',{cliente: clientepf})
     });
@@ -22,7 +22,6 @@ router.get('/all/', async (req, res)  =>  {
 
 // Encontra cliente pelo CPF
 router.post('/cpf/', async (req, res) => {
-    console.log(listaEstadosBrasileiros)
     const cpf = req.body.cpf;
 
     await ClientePF.findOne(

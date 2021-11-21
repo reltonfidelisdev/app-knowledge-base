@@ -1,3 +1,4 @@
+const ClientePF = require('../database/CilentePF');
 const ClientPFService = require('../services/clientepf.services')
 
 const create = async (req, res, next) => {
@@ -28,7 +29,11 @@ const create = async (req, res, next) => {
             message:message
         }))
     }
-}
+} // End Create New ClientePF
+
+const read = ((req, res, next) => {
+    
+})
 
 module.exports = {
     create

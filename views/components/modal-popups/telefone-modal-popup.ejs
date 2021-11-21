@@ -3,30 +3,26 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalLoginTelefoneLabel">Informe o telefone</h5>
+          <h5 class="modal-title" id="modalLoginTelefoneLabel">Telefones para contato</h5>
           <button type="button" class="btn-close" aria-label="Close"></button>
         </div>
         <form action="/telefone/create/" class="form-group" method="post">
-            <div class="modal-body">
-            <p>Informe o código único do cliente:</p>
+          <input required id="ownerToken" name="ownerToken" hidden maxlength="36" type="text">  
+          <div class="modal-body">
+            <p id="uuidComponent"></p>
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-upc-scan"></i></span>
-              <input name="ownerToken" maxlength="36" type="text" class="form-control" placeholder="Ex: 5d1f9013-f53d-478f-ae5a-d00501fb7b79
-              " aria-label="Ex: " aria-describedby="client-contact">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-phone"></i></span>
+              <input required name="celularPrincipal" maxlength="11" type="text" class="form-control" placeholder="Celular Principal">
             </div>
-            <hr>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-plus"></i></span>
-              <input name="numero" maxlength="11" type="text" class="form-control" placeholder="Ex: 81 9 9651 0559" aria-label="Ex: 81 99651 0559" aria-describedby="client-contact">
+              <input required name="fixoProprio" maxlength="11" type="text" class="form-control" placeholder="Fixo Próprio">
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="contactType" id="inlineRadio1" value="Celular ou Whatsapp">
-              <label class="form-check-label" for="inlineRadio1"><i class="bi bi-phone"></i> <i class="bi bi-whatsapp"></i> Celular e Whatsapp</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-forward"></i></span>
+              <input required name="fixoRecado" maxlength="11" type="text" class="form-control" placeholder="Fixo Recados">
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="contactType" id="inlineRadio2" value="Vixo ou Recado">
-              <label class="form-check-label" for="inlineRadio2"><i class="bi bi-telephone"></i> Fixo e Recados</label>
-            </div>
+            <p>É possível cadastrar apenas 3 números por cliente</p>
             
           </div>
           <div class="modal-footer">

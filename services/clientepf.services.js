@@ -12,8 +12,15 @@ const create = async (clientePF, page , limit) => {
     }).catch((errMessage) => {
         console.log(errMessage)
     })
+} // End of Create new client
+
+const read = async (clientUID, page, limit) => {
+    await ClientePF.findOne({
+
+    })
 }
 
 module.exports = {
-    create
+    create,
+    read
 }

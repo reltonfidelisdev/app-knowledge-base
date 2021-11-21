@@ -61,6 +61,12 @@
         toast.show()
         })
     }
+
+    // Define uid for input hidden in (modal forms) with user relationship
+    const ownerToken = document.getElementById("ownerToken")
+    ownerToken.value = "<%= arrayCliente.uid %>"
+    
     </script>
 </body>
+
 <%- include('../../partials/footer.ejs') %>

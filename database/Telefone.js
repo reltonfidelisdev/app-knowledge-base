@@ -2,11 +2,15 @@ const Sequelize = require("sequelize");
 const connection = require("./database");
 
 const Telefone = connection.define('telefone',{
-    numero: {
+    celularPrincipal: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    contactType: {
+    fixoProprio: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    fixoRecado: {
         type: Sequelize.STRING,
         allowNull: false
     },
