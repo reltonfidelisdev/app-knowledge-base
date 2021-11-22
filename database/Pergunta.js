@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connection = require("./database")
+const connection = require("./db_sequelize")
 
 const Pergunta = connection.define('perguntas', {
     titulo: {
@@ -9,6 +9,14 @@ const Pergunta = connection.define('perguntas', {
     descricao: {
         type: Sequelize.TEXT,
         allowNull: false
+    },
+    createdAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+    },
+    updatedAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
     }
 },{});
 

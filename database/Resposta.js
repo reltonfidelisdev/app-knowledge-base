@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connection = require("./database");
+const connection = require("./db_sequelize");
 
 const Resposta = connection.define('respostas', {
     corpo: {
@@ -9,6 +9,14 @@ const Resposta = connection.define('respostas', {
     perguntaId: { // Relacionamento cru entre duas tabelas
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    createdAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+    },
+    updatedAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
     }
 });
 

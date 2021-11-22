@@ -1,15 +1,13 @@
-const Telefone = require('../database/Telefone');
+const database = require('../database/db_knex')
 
 const create = (telefoneCliente, page, limit) => {
 
     const {celularPrincipal, fixoProprio, fixoRecado, ownerToken} = telefoneCliente;
-
-     Telefone.create({
-        celularPrincipal, fixoProprio, fixoRecado, ownerToken
-    }).then(() => {
-        console.log('Telefone cadastrado')
-    }).catch((errMessage) => {
-        console.log(errMessage)
+    
+    database.insert(telefoneCliente).into('telefone').then(data => {
+        console.log(data)
+    }).catch(err => {
+        console.log(err)
     })
 }
 

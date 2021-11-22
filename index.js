@@ -6,7 +6,7 @@ const RouterProposta = require("./routes/proposta.router")
 const RouterTelefone = require("./routes/telefone.router")
 // App routes
 const bodyParser = require("body-parser");
-const connection = require("./database/database");
+const connection = require("./database/db_sequelize");
 // App DAO Sequelize ORM Class
 const Pergunta  = require("./database/Pergunta");
 const Resposta  = require("./database/Resposta");

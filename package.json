@@ -25,6 +25,8 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
+    "knex": "^0.95.14",
+    "moment": "^2.29.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.9.0"
   }

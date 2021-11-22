@@ -1,11 +1,11 @@
 const Sequelize = require("sequelize");
-const connection = require("./database")
+const connection = require("./db_sequelize")
 
 const ClientePF = connection.define('clientepf', {
     uid: {
         primaryKey: false,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.STRING,
+        defaultValue: new Date(),
         allowNull: false
       },
     nomeCompleto: {
@@ -21,7 +21,7 @@ const ClientePF = connection.define('clientepf', {
         allowNull: false
     },
     dataNascimento: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false
     },
     sexo: {
@@ -31,11 +31,19 @@ const ClientePF = connection.define('clientepf', {
     grauEscolaridade:{ 
         type: Sequelize.CHAR,
         allowNull: false
+    },
+    createdAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+    },
+    updatedAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
     }
 },{
     freezeTableName: true, // impede a pluralização das tabelas pelo sequelize
 });
 
-ClientePF.sync({force: false});
+// ClientePF.sync({force: false}); // Padrão = false
 
 module.exports = ClientePF;

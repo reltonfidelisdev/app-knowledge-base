@@ -23,11 +23,11 @@ const create = async (req, res, next) => {
             message:message
         }))
     } catch (e) {
-        //return res.status(400).json({ status: 400, message: e.message });
-        message = "Erro ao tentar cadastrar o cliente!"
-        res.render("components/feedback/feedback.ejs",({
-            message:message
-        }))
+        return res.status(400).json({ status: 400, message: e.message });
+        // message = "Erro ao tentar cadastrar o cliente!"
+        // res.render("components/feedback/feedback.ejs",({
+        //     message:message,
+        // }))
     }
 } // End Create New ClientePF
 

@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connection = require("./database");
+const connection = require("./db_sequelize");
 
 const Telefone = connection.define('telefone',{
     celularPrincipal: {
@@ -17,11 +17,19 @@ const Telefone = connection.define('telefone',{
     ownerToken: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    createdAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+    },
+    updatedAt:{
+        type: Sequelize.DATE,
+        defaultValue: new Date()
     }
 },{
     freezeTableName: true, // impede a pluralização das tabelas pelo sequelize
 })
 
-Telefone.sync({force: false})
+Telefone.sync({force: true})
 
 module.exports = Telefone;
