@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="modalLoginTelefoneLabel">Telefones para contato</h5>
-          <button type="button" class="btn-close" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="/telefone/create/" class="form-group" method="post">
           <input required id="ownerToken" name="ownerToken" hidden maxlength="32" type="text">  
@@ -12,15 +12,15 @@
             <p id="uuidComponent"></p>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-phone"></i></span>
-              <input required name="celularPrincipal" maxlength="11" type="text" class="form-control" placeholder="Celular Principal">
+              <input required name="celularPrincipal" maxlength="11" type="text" class="form-control phone_with_ddd" placeholder="Celular Principal">
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-plus"></i></span>
-              <input required name="fixoProprio" maxlength="11" type="text" class="form-control" placeholder="Fixo Próprio">
+              <input required name="fixoProprio" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Próprio">
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-forward"></i></span>
-              <input required name="fixoRecado" maxlength="11" type="text" class="form-control" placeholder="Fixo Recados">
+              <input required name="fixoRecado" maxlength="11" type="text" class="form-control phone" placeholder="Fixo Recados">
             </div>
             <p>É possível cadastrar apenas 3 números por cliente</p>
             

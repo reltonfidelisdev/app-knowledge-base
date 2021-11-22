@@ -175,8 +175,6 @@ app.get('/cliente/:uid', async (req, res) => {
         }
     })
 })
-
-
 // Erro 404
 app.get('/erro404', (req, res) => {
     res.render('components/erro404/erro404.ejs')
@@ -186,6 +184,7 @@ app.get('/feedback/message/:msg', (req, res) => {
     const {message} = req.body
     res.render(message)
 })
+
 
 
 
