@@ -1,14 +1,14 @@
 const DadosBancariosServices = require("../services/dados-bancarios.services")
 const create = (req, res, next) => {
-    const {ownerToken, codigoBanco, tipoConta, agenciaComDigito, contaComDigito} = req.body
+    const {dadosBancariosOwnerToken, codigoBanco, tipoConta, agenciaComDigito, contaComDigito} = req.body
     
-    console.log(`ownerToken no controller dados bancarios ${ownerToken}`)
+    console.log(`ownerToken no controller dados bancarios ${dadosBancariosOwnerToken}`)
     const contaBancaria = {
         "codigoBanco": codigoBanco,
         "tipoConta": tipoConta,
         "agenciaComDigito": agenciaComDigito,
         "contaComDigito": contaComDigito,
-        "ownerToken": ownerToken
+        "dadosBancariosOwnerToken": dadosBancariosOwnerToken
     }
     var page = req.params.page ? req.params.page : 1;
     var limit = req.params.limit ? req.params.limit : 10;

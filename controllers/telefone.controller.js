@@ -1,13 +1,13 @@
 const TelefoneService = require('../services/telefone.services');
 
 const create = (req, res, next) => {
-    const {celularPrincipal, fixoProprio, fixoRecado, ownerToken } = req.body
-    console.log("Token no telefone controller",ownerToken)
+    const {celularPrincipal, fixoProprio, fixoRecado, telefoneOwnerToken } = req.body
+    console.log("Token no telefone controller",telefoneOwnerToken)
     const telefoneCliente = {
         "celularPrincipal": celularPrincipal,
         "fixoProprio": fixoProprio,
         "fixoRecado": fixoRecado,
-        "ownerToken": ownerToken
+        "telefoneOwnerToken": telefoneOwnerToken
     }
     var page = req.params.page ? req.params.page : 1;
     var limit = req.params.limit ? req.params.limit : 10;

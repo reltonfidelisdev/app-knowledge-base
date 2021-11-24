@@ -19,7 +19,7 @@ const DadosBancarios = connection.define('dadosBancarios',{
         type: Sequelize.STRING,
         allowNull: false
     },
-    ownerToken: {
+    dadosBancariosOwnerToken: {
         type: Sequelize.STRING,
         allowNull: false
     },

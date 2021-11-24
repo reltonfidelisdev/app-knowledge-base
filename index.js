@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 // App routes
-const RouterClientPF = require("./routes/clientepf.router")
-const RouterProposta = require("./routes/proposta.router")
-const RouterTelefone = require("./routes/telefone.router")
+const RouterClientPF       = require("./routes/clientepf.router")
+const RouterProposta       = require("./routes/proposta.router")
+const RouterTelefone       = require("./routes/telefone.router")
 const RouterDadosBancarios = require("./routes/dados-dancarios.router")
+const RouterEmail          = require("./routes/email.router")
 // App routes
 const bodyParser = require("body-parser");
 const connection = require("./database/db_sequelize");
@@ -14,6 +15,7 @@ const Resposta       = require("./database/Resposta");
 const ClientePF      = require("./database/CilentePF")
 const Telefone       = require("./database/Telefone");
 const DadosBancarios = require("./database/DadosBancarios");
+const Email          = require("./database/Email")
 
 
 
@@ -196,6 +198,7 @@ app.use('/telefone/', RouterTelefone)
 app.use('/client/', RouterClientPF)
 app.use('/proposta/', RouterProposta)
 app.use('/dados-bancarios/', RouterDadosBancarios)
+app.use('/email/', RouterEmail)
 
 
 app.listen(8080,()=>{console.log("App rodando!");});

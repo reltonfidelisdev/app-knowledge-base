@@ -1,20 +1,16 @@
 const Sequelize = require("sequelize");
-const connection = require("./db_sequelize");
+const connection = require("../database/db_sequelize")
 
-const Telefone = connection.define('telefone',{
-    celularPrincipal: {
+const Email = connection.define('email',{
+    emailPrincipal: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    fixoProprio: {
+    emailSecundario: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    fixoRecado: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    telefoneOwnerToken: {
+    emailOwnerToken: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -30,6 +26,6 @@ const Telefone = connection.define('telefone',{
     freezeTableName: true, // impede a pluralização das tabelas pelo sequelize
 })
 
-Telefone.sync({force: false})
+Email.sync({ force: false})
 
-module.exports = Telefone;
+module.exports = Email;
