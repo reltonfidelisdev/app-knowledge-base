@@ -45,13 +45,18 @@ const create = async (clientePF, page , limit) => {
     })
 } // End of Create new client
 
-const read = async (clientUID, page, limit) => {
-    await ClientePF.findOne({
-
+const readByUID = async (clientUID, page, limit) => {
+    const {uid} = clientUID
+    console.log("Uiid services:", uid)
+    await database.select('*').from('clientepf').where({'uid': uid}).then((data) => {
+       console.log("data pf services", data)
+        return data;
+    }).catch(err => {
+        console.log(err)
     })
 }
 
 module.exports = {
     create,
-    read
+    readByUID
 }

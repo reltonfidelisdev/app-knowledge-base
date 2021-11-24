@@ -7,12 +7,11 @@
 <form class="row g-3 mt-3" method="post" action="/proposta/simular/calculo">
     <div class="col-md-2">
         <label for="inputValorCredito" class="form-label">Valor Solicitado</label>
-      <input type="text" value="1000,00" name="valorDoEmprestimo" class="form-control" id="inputValorCredito"  placeholder="Ex: 2000,00">
+      <input type="text" required name="valorDoEmprestimo" class="form-control money3" id="inputValorCredito"  placeholder="Ex: 2000,00">
     </div>
     <div class="col-md-3">
         <label for="inputTabelaDeCalculo" class="form-label">Tabela de Cálculo</label>
         <select name="tabelaDeCalculo" id="inputTabelaDeCalculo" class="form-select">
-          <option  >Selecione ...</option>
           <% arrListaTabelas.forEach(lista => { %>
             <option selected value='<%= lista.percent %>' ><%= lista.label %></option>
           <% }) %>

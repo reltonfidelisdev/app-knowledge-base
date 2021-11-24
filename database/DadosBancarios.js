@@ -1,16 +1,21 @@
 const Sequelize = require("sequelize");
 const connection = require("./db_sequelize");
 
-const Telefone = connection.define('telefone',{
-    celularPrincipal: {
+const DadosBancarios = connection.define('dadosBancarios',{
+    codigoBanco: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    fixoProprio: {
+    tipoConta: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+    },
+    agenciaComDigito: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    fixoRecado: {
+    contaComDigito: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -30,6 +35,6 @@ const Telefone = connection.define('telefone',{
     freezeTableName: true, // impede a pluralização das tabelas pelo sequelize
 })
 
-Telefone.sync({force: false})
+DadosBancarios.sync({force: false})
 
-module.exports = Telefone;
+module.exports = DadosBancarios;

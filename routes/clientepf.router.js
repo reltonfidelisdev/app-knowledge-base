@@ -47,10 +47,7 @@ router.get('/id/:id', (req, res) => {
     res.send(`Procurar por id: ${id}` );
 })
 
-router.get('/uid/:uid', (req, res) => {
-    const { uid } = req.params
-    res.send(`Procurar por id: ${uid}` );
-})
+router.get('/uid/:uid', ClientePFController.readByUID)
 
 
 // Post new user

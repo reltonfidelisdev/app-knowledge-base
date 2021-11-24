@@ -4,14 +4,17 @@ const app = express();
 const RouterClientPF = require("./routes/clientepf.router")
 const RouterProposta = require("./routes/proposta.router")
 const RouterTelefone = require("./routes/telefone.router")
+const RouterDadosBancarios = require("./routes/dados-dancarios.router")
 // App routes
 const bodyParser = require("body-parser");
 const connection = require("./database/db_sequelize");
 // App DAO Sequelize ORM Class
-const Pergunta  = require("./database/Pergunta");
-const Resposta  = require("./database/Resposta");
-const ClientePF = require("./database/CilentePF")
-const Telefone  = require("./database/Telefone")
+const Pergunta       = require("./database/Pergunta");
+const Resposta       = require("./database/Resposta");
+const ClientePF      = require("./database/CilentePF")
+const Telefone       = require("./database/Telefone");
+const DadosBancarios = require("./database/DadosBancarios");
+
 
 
 connection
@@ -192,6 +195,7 @@ app.get('/feedback/message/:msg', (req, res) => {
 app.use('/telefone/', RouterTelefone)
 app.use('/client/', RouterClientPF)
 app.use('/proposta/', RouterProposta)
+app.use('/dados-bancarios/', RouterDadosBancarios)
 
 
 app.listen(8080,()=>{console.log("App rodando!");});

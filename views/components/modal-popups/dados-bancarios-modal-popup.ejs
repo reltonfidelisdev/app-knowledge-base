@@ -1,0 +1,59 @@
+
+      <!-- início Modal Login Operador -->
+      <div class="modal fade" id="modalContaBancaria" tabindex="-1" aria-labelledby="modalContaBancariaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalEnderecoLabel">Informe os dados da conta</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/dados-bancarios/create/" class="form-group" method="post">
+              <input name="ownerToken" hidden type="text" value="<%= arrayCliente.uid %>"> 
+              <div class="modal-body"> 
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-bank"></i></span>
+                    <select required class="form-select" name="codigoBanco" aria-label="Selecione a Instituição Bancária">
+                      <option></option>
+                      <option value="237">237 Banco Bradesco</option>
+                      <option value="745">745 Banco Citibank</option>
+                      <option value="748">748 Banco Sicredi</option>
+                      <option value="069">069 Banco Crefisa</option>
+                      <option value="001">001 Banco do Brasil</option>
+                      <option value="212">212 Banco Original</option>
+                      <option value="453">453 Banco Rural</option>
+                      <option value="422">422 Banco Safra</option>
+                      <option value="033">033 Banco Santander</option>
+                      <option value="655">655 Banco Votorantim</option>
+                      <option value="104">104 Caixa Econômica Federal</option>
+                      <option value="104">399 HSBC Bank Brasil</option>
+                      <option value="104">341 Itaú Unibanco</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-piggy-bank"></i></span>
+                  <select required class="form-select" name="tipoConta" aria-label="Default select example">
+                    <option></option>
+                    <option value="1">Conta Corrente</option>
+                    <option value="2">Conta Salário</option>
+                    <option value="3">Conta Poupança</option>
+                    <option value="4">Conta Conjunta</option>
+                  </select>
+              </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Agência</span>
+                  <input type="text" name="contaComDigito" class="form-control" placeholder="0987-1" aria-label="0987-1">
+                  <span class="input-group-text">Conta</span>
+                  <input type="text" name="agenciaComDigito" class="form-control" placeholder="000012345-9" aria-label="000012345-9">
+                </div>
+    
+                
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success"><i class="be bi-check"></i> Salvar</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- início Modal Login Operador -->
+    

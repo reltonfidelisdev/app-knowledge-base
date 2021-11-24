@@ -6,7 +6,10 @@
           <h5 class="modal-title" id="modalEnderecoLabel">Informe o Endereço</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form action="/endececo/create/" class="form-group" method="post">
+        <input id="ownerToken" name="ownerToken" hidden maxlength="32" type="text"> 
         <div class="modal-body">
+          <p>Selecione o Estado:</p>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-compass"></i></span>
             <select required class="form-select" aria-label="Default select example">
@@ -21,31 +24,37 @@
         </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-map"></i></span>
-                <input maxlength="100" type="text" class="form-control" placeholder="Informe a Cidade" aria-label="Informe a Cidade" aria-describedby="client-city">
+                <input maxlength="100" type="text" class="form-control" required required placeholder="Informe a Cidade" aria-label="Informe a Cidade" aria-describedby="client-city">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
-              <input type="text" class="form-control" placeholder="Informe a rua ou avenida" aria-label="Informe a rua ou avenida" aria-describedby="client-street">
+              <input type="text" class="form-control" required placeholder="Informe a rua ou avenida" aria-label="Informe a rua ou avenida" aria-describedby="client-street">
             </div>
 
 
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-pin-map"></i></span>
-              <input type="text" class="form-control" placeholder="Informe um ponto de referência" aria-label="Informe um ponto de referência" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" required placeholder="Complemento, ex: Bloco 04, Quadra 61, AP 404" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3">
               <span class="input-group-text">Nº</span>
-              <input type="text" class="form-control" placeholder="20A" aria-label="210A">
+              <input type="text" class="form-control" required placeholder="20A" aria-label="210A">
               <span class="input-group-text">CEP</span>
-              <input type="text" class="form-control" placeholder="53110-080" aria-label="53110-080">
+              <input type="text" class="form-control cep" required placeholder="53110-080" aria-label="53110-080">
             </div>
 
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-pin-map"></i></span>
+              <input type="text" class="form-control" required placeholder="Ponto de referência" aria-label="Informe um ponto de referência" aria-describedby="basic-addon1">
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-success"><i class="be bi-check"></i> Salvar</button>
         </div>
+
+        </form>
       </div>
     </div>
   </div>

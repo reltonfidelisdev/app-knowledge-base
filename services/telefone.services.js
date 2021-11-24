@@ -1,11 +1,13 @@
+
 const database = require('../database/db_knex')
 
-const create = (telefoneCliente, page, limit) => {
+const create = async (telefoneCliente, page, limit) => {
 
     const {celularPrincipal, fixoProprio, fixoRecado, ownerToken} = telefoneCliente;
-    
-    database.insert(telefoneCliente).into('telefone').then(data => {
-        console.log(data)
+console.log(telefoneCliente)
+    await database.insert(telefoneCliente)
+            .into('telefone').then(data => {
+                
     }).catch(err => {
         console.log(err)
     })

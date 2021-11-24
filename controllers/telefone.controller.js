@@ -2,7 +2,7 @@ const TelefoneService = require('../services/telefone.services');
 
 const create = (req, res, next) => {
     const {celularPrincipal, fixoProprio, fixoRecado, ownerToken } = req.body
-    
+    console.log("Token no telefone controller",ownerToken)
     const telefoneCliente = {
         "celularPrincipal": celularPrincipal,
         "fixoProprio": fixoProprio,
@@ -13,17 +13,12 @@ const create = (req, res, next) => {
     var limit = req.params.limit ? req.params.limit : 10;
     try{
         TelefoneService.create(telefoneCliente, page, limit)
-    }catch(errorMessage) {
-        message = "Erro ao tentar cadastrar o cliente!"
-        res.render("components/feedback/feedback.ejs",({
-            message:message
-        }))
+        res.status(200).json({status: 200, message: "Deu certo!"})
+        //console.log(data)
+    }catch(err) {
+        res.status(400).json({status: 400, message: "Deu erro!", erro: err})
     }
 
-    message = "Telefone cadastrado com sucesso!"
-    res.render("components/feedback/feedback.ejs",({
-        message:message
-    }))
 }
 
 module.exports = {

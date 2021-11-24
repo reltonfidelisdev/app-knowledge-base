@@ -7,12 +7,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="/telefone/create/" class="form-group" method="post">
-          <input required id="ownerToken" name="ownerToken" hidden maxlength="32" type="text">  
+          <input id="ownerToken" name="ownerToken" hidden type="text">   
           <div class="modal-body">
-            <p id="uuidComponent"></p>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-phone"></i></span>
-              <input required name="celularPrincipal" maxlength="11" type="text" class="form-control phone_with_ddd" placeholder="Celular Principal">
+              <input required name="celularPrincipal" maxlength="11" type="text" class="form-control sp_celphones" placeholder="Celular Principal">
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-plus"></i></span>

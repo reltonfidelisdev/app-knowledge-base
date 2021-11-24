@@ -31,10 +31,23 @@ const create = async (req, res, next) => {
     }
 } // End Create New ClientePF
 
-const read = ((req, res, next) => {
-    
-})
+const readByUID = (req, res, next) => {
+    const uid = req.params;
+    var page = req.params.page ? req.params.page : 1;
+    var limit = req.params.limit ? req.params.limit : 10;
+    try {
+        const data = ClientPFService.readByUID(uid, page, limit)
+        
+        res.status(200).json(data)
+        message = "Cliente cadastrado com sucesso!"
+        
+    } catch (e) {
+        return res.status(400).json({ status: 400, message: e.message });
+
+    }
+}
 
 module.exports = {
-    create
+    create,
+    readByUID
 }
