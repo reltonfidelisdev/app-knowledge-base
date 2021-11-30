@@ -3,21 +3,21 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalEmailClienteLabel">Telefones para contato</h5>
+          <h5 class="modal-title" id="modalEmailClienteLabel">Emails do cliente</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="/email/create/" class="form-group" method="post">
-          <input id="emailOwnerToken" name="emailOwnerToken" hidden type="text">   
+          <input id="idClienteEmail" name="idCliente" hidden type="text">   
           <div class="modal-body">
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-phone"></i></span>
-              <input required name="emailPrincipal" maxlength="200" type="text" class="form-control" placeholder="Celular Principal">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-check"></i></span>
+              <input required name="emailPrincipal" maxlength="200" type="text" class="form-control" placeholder="Email Principal">
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1"><i class="bi bi-telephone-plus"></i></span>
-              <input required name="emailSecundario" maxlength="200" type="text" class="form-control" placeholder="Fixo Próprio">
+              <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-plus"></i></span>
+              <input required name="emailSecundario" maxlength="200" type="text" class="form-control" placeholder="Email secundário">
             </div>
-            <p>É possível cadastrar apenas 3 números por cliente</p>
+            <p>É possível cadastrar apenas 2 emails por cliente</p>
             
           </div>
           <div class="modal-footer">

@@ -1,22 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const { body } = require('express-validator');
-const ClientePF = require("../database/CilentePF")
+const Cliente = require("../database/Cliente")
 
 const listaEstadosBrasileiros = require('../database/estados-brasileiros')
 
-var ClientePFController = require('../controllers/clientepf.controller')
+var ClienteController = require('../controllers/cliente.controller');
+const Telefone = require("../database/Telefone");
 
 // Pesquisa todos os clientes
 router.get('/all/', async (req, res)  =>  {
 
-    const clientepf = ClientePF.findAll({ order:[
+    const cliente = Cliente.findAll({ order:[
         ['id', 'DESC']
-    ]}).then(clientepf => {
-        res.render('components/cliente-tabela/cliente-tabela.ejs',{cliente: clientepf})
+    ]}).then(Cliente => {
+        res.render('components/cliente-tabela/cliente-tabela.ejs',{cliente: Cliente})
     });
   
-    //console.log(clientepf)
+    //console.log(Cliente)
 });
 
 
@@ -24,14 +25,14 @@ router.get('/all/', async (req, res)  =>  {
 router.post('/cpf/', async (req, res) => {
     const cpf = req.body.cpf;
 
-    await ClientePF.findOne(
-        {where: { cpf : cpf }}
-    ).then(clientepf => {
-        if(clientepf != undefined){ // Pergunta encontrada
+    await Cliente.findOne(
+        {where: { cpf : cpf }},
+    ).then(Cliente => {
+        if(Cliente != undefined){ // Pergunta encontrada
             
-            //console.log(clientepf)
-            res.render("components/clientepf/cliente-info.ejs", {
-                arrayCliente: clientepf,
+            //console.log(Cliente)
+            res.render("components/cliente/cliente-info.ejs", {
+                arrayCliente: Cliente,
                 arrlistaEstadosBrasileiros: listaEstadosBrasileiros
             })
 
@@ -47,7 +48,7 @@ router.get('/id/:id', (req, res) => {
     res.send(`Procurar por id: ${id}` );
 })
 
-router.get('/uid/:uid', ClientePFController.readByUID)
+router.get('/uid/:uid', ClienteController.readByUID)
 
 
 // Post new user
@@ -58,7 +59,7 @@ body('rg').not().isEmpty().trim().escape(),
 body('nomeCompleto').not().isEmpty().trim().escape(),
 body('dataNascimento').not().isEmpty().isDate().trim().escape(),
 body('sexo').not().isEmpty().isString().trim().escape(),
-ClientePFController.create)
+ClienteController.create)
 
 // Rota client/pf
 // Exibe o formulário de pesquisa
@@ -70,7 +71,7 @@ router.get('/pf/', (req, res) => {
 // Rota client/create
 router.get('/create', (req, res) => {
 
-    res.render('components/clientepf/form-clientepf.ejs')
+    res.render('components/cliente/form-cliente.ejs')
 })
 
 module.exports = router;

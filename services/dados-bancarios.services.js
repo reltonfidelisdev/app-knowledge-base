@@ -1,13 +1,13 @@
 const database = require("../database/db_knex")
 
 const create = (dadosBancarios, page, limit) => {
-    const {codigoBanco, agenciaComDigito, contaComDigito, dadosBancariosOwnerToken} = dadosBancarios;
+    const {codigoBanco, agenciaComDigito, contaComDigito, idCliente} = dadosBancarios;
 
     const dBancarios = {
         "codigoBanco": codigoBanco, 
         "agenciaComDigito": agenciaComDigito, 
         "contaComDigito": contaComDigito,
-         "dadosBancariosOwnerToken": dadosBancariosOwnerToken
+         "idCliente": idCliente
         }
 
     database.insert(dBancarios)

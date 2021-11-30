@@ -20,6 +20,6 @@ const Pergunta = connection.define('perguntas', {
     }
 },{});
 
-Pergunta.sync({force: false})
+// Pergunta.sync({force: true})
 
 module.exports = Pergunta;

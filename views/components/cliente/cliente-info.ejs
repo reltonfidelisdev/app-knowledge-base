@@ -65,12 +65,11 @@
         })
     }
 
-    // Define uid for input hidden in (modal forms) with user relationship
-    document.getElementById("telefoneOwnerToken").value = "<%= arrayCliente.uid %>"
-    document.getElementById("dadosBancariosOwnerToken").value = "<%= arrayCliente.uid %>"
-    document.getElementById("emailOwnerToken").value = "<%= arrayCliente.uid %>"
-    document.getElementById("emailOwnerToken").value = "<%= arrayCliente.uid %>"
-    
+    // Define idCliente for input hidden in (modal forms) with user relationship
+    document.getElementById("idClienteTelefone").value = "<%= arrayCliente.id %>"
+    document.getElementById("idClienteEndereco").value = "<%= arrayCliente.id %>"
+    document.getElementById("idClienteEmail").value = "<%= arrayCliente.id %>"
+    document.getElementById("idClienteDadosBancarios").value = "<%= arrayCliente.id %>"
     
     </script>
 </body>

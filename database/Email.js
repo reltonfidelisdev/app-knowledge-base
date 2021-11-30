@@ -1,16 +1,18 @@
 const Sequelize = require("sequelize");
-const connection = require("../database/db_sequelize")
+const connection = require("../database/db_sequelize");
+const Cliente = require("./Cliente");
 
 const Email = connection.define('email',{
+    idCliente: {
+        type: Sequelize.INTEGER,
+        unique: true,
+        allowNull: false,
+      },
     emailPrincipal: {
         type: Sequelize.STRING,
         allowNull: false
     },
     emailSecundario: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    emailOwnerToken: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -26,6 +28,11 @@ const Email = connection.define('email',{
     freezeTableName: true, // impede a pluralização das tabelas pelo sequelize
 })
 
-Email.sync({ force: false})
+Email.belongsTo(Cliente, {
+    constraint: true,
+    foreignKey: 'idCliente'
+})
+
+Email.sync({ force: true})
 
 module.exports = Email;

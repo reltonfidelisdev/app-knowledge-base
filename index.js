@@ -1,21 +1,24 @@
 const express = require("express");
 const app = express();
 // App routes
-const RouterClientPF       = require("./routes/clientepf.router")
+const RouterCliente       = require("./routes/cliente.router")
 const RouterProposta       = require("./routes/proposta.router")
 const RouterTelefone       = require("./routes/telefone.router")
 const RouterDadosBancarios = require("./routes/dados-dancarios.router")
 const RouterEmail          = require("./routes/email.router")
+const RouterEndereco       = require("./routes/endereco.router")
 // App routes
 const bodyParser = require("body-parser");
 const connection = require("./database/db_sequelize");
 // App DAO Sequelize ORM Class
 const Pergunta       = require("./database/Pergunta");
 const Resposta       = require("./database/Resposta");
-const ClientePF      = require("./database/CilentePF")
+const Cliente      = require("./database/Cliente")
+const DadosEmpresariais      = require("./database/DadosEmpressariais")
 const Telefone       = require("./database/Telefone");
 const DadosBancarios = require("./database/DadosBancarios");
-const Email          = require("./database/Email")
+const Email          = require("./database/Email");
+const Endereco       = require("./database/Endereco")
 
 
 
@@ -106,14 +109,6 @@ app.get('/banco', (req, res) => {
 })
 
 
-
-
-// Rotas Cliente PJ
-app.get('/cadastrar-cliente-pj', (req, res) => {
-
-    res.render('components/clientepj/form-clientepj.ejs')
-})
-
 // Rotas Contato
 app.get('/contato', (req, res) => {
     res.render('components/contato/form-contato.ejs')
@@ -165,14 +160,14 @@ app.get('/proposta', (req, res) => {
 app.get('/cliente/:uid', async (req, res) => {
     const uid = req.params.uid;
 
-    await ClientePF.findOne(
+    await Cliente.findOne(
         {where: { uid : uid }}
-    ).then(clientepf => {
-        if(clientepf != undefined){ // Pergunta encontrada
+    ).then(Cliente => {
+        if(Cliente != undefined){ // Pergunta encontrada
 
-            //console.log(clientepf)
-            res.render("components/clientepf/cliente-info.ejs", {
-                arrayCliente: clientepf
+            //console.log(Cliente)
+            res.render("components/cliente/cliente-info.ejs", {
+                arrayCliente: Cliente
             })
 
         }else{ // Não encontrada
@@ -195,10 +190,11 @@ app.get('/feedback/message/:msg', (req, res) => {
 
 // Routes
 app.use('/telefone/', RouterTelefone)
-app.use('/client/', RouterClientPF)
+app.use('/client/', RouterCliente)
 app.use('/proposta/', RouterProposta)
 app.use('/dados-bancarios/', RouterDadosBancarios)
 app.use('/email/', RouterEmail)
+app.use('/endereco/', RouterEndereco)
 
 
 app.listen(8080,()=>{console.log("App rodando!");});

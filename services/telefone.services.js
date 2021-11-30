@@ -1,18 +1,26 @@
 
-const database = require('../database/db_knex')
-
+const Telefone = require("../database/Telefone")
 const create = async (telefoneCliente, page, limit) => {
+  const { 
+    celularPrincipal, 
+    fixoProprio, 
+    fixoRecado, 
+    idCliente } = telefoneCliente;
+  
+    console.log(telefoneCliente);
 
-    const {celularPrincipal, fixoProprio, fixoRecado, telefoneOwnerToken} = telefoneCliente;
-console.log(telefoneCliente)
-    await database.insert(telefoneCliente)
-            .into('telefone').then(data => {
-                
-    }).catch(err => {
-        console.log(err)
-    })
-}
+  await Telefone.create({
+    celularPrincipal, 
+    fixoProprio, 
+    fixoRecado, 
+    idCliente
+  }).then(() => {
+    console.log("Ok")
+  }).catch((msgErro) => {
+    console.log(msgErro)
+  })
+};
 
 module.exports = {
-    create
-}
+  create,
+};

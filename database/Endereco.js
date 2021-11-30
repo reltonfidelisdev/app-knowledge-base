@@ -1,27 +1,39 @@
 const Sequelize = require("sequelize");
-const Cliente = require("./Cliente");
 const connection = require("./db_sequelize");
-
-const DadosBancarios = connection.define('dadosBancarios',{
+const Cliente = require("./Cliente")
+const Endereco = connection.define('endereco',
+{
     idCliente: {
-        type: Sequelize.INTEGER,
-        unique: true,
-        allowNull: false,
-      },
-    codigoBanco: {
+      type: Sequelize.INTEGER,
+      unique: true,
+      allowNull: false,
+    },
+    estado: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    tipoConta: {
-        type: Sequelize.INTEGER,
+    cidade: {
+        type: Sequelize.STRING,
         allowNull: false,
         defaultValue: 0
     },
-    agenciaComDigito: {
+    logradouro: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    contaComDigito: {
+    complemento: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    numero: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    cep: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    pontoReferencia: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -35,13 +47,13 @@ const DadosBancarios = connection.define('dadosBancarios',{
     }
 },{
     freezeTableName: true, // impede a pluralização das tabelas pelo sequelize
-})
+});
 
-DadosBancarios.belongsTo(Cliente, {
+Endereco.belongsTo(Cliente, {
     constraint: true,
     foreignKey: 'idCliente'
 })
 
-DadosBancarios.sync({force: true})
+Endereco.sync({force: true})
 
-module.exports = DadosBancarios;
+module.exports = Endereco;

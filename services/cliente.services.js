@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const moment = require("moment");
 
 
-const create = async (clientePF, page , limit) => {
+const create = async (Cliente, page , limit) => {
 
     // string to be hashed
     const str = "I need to be hashed using MD5😃!";
@@ -22,7 +22,7 @@ const create = async (clientePF, page , limit) => {
     // A unique md5 hash 😃
     console.log(hash); // ex: 1c211d131453e023d101c40f2c3372e0
 
-    var { nomeCompleto, cpf, rg, dataNascimento, sexo, grauEscolaridade } = clientePF;
+    var { nomeCompleto, cpf, rg, dataNascimento, sexo, grauEscolaridade } = Cliente;
     const formData = dataNascimento;
     dataSplitted = formData.split('&#x2F;')
     var dataFromatada = `${dataSplitted[2]}-${dataSplitted[1]}-${dataSplitted[0]}`;
@@ -38,7 +38,7 @@ const create = async (clientePF, page , limit) => {
     "grauEscolaridade": grauEscolaridade
     }
 
-    await database.insert(dados).into('clientepf').then(data => {
+    await database.insert(dados).into('cliente').then(data => {
         console.log("cliente Cadastrado", data)
     }).catch(err => {
         console.log(err)
@@ -48,7 +48,7 @@ const create = async (clientePF, page , limit) => {
 const readByUID = async (clientUID, page, limit) => {
     const {uid} = clientUID
     console.log("Uiid services:", uid)
-    await database.select('*').from('clientepf').where({'uid': uid}).then((data) => {
+    await database.select('*').from('cliente').where({'uid': uid}).then((data) => {
        console.log("data pf services", data)
         return data;
     }).catch(err => {

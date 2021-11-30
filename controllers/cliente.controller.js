@@ -1,11 +1,11 @@
-const ClientePF = require('../database/CilentePF');
-const ClientPFService = require('../services/clientepf.services')
+const Cliente = require('../database/Cliente');
+const ClientPFService = require('../services/cliente.services')
 
 const create = async (req, res, next) => {
     const { nomeCompleto, cpf, rg, dataNascimento, sexo, grauEscolaridade } = req.body
         
     
-    const clientePF = {
+    const Cliente = {
         "nomeCompleto": nomeCompleto,
         "cpf": cpf, 
         "rg": rg, 
@@ -17,7 +17,7 @@ const create = async (req, res, next) => {
     var limit = req.params.limit ? req.params.limit : 10;
 
     try {
-        await ClientPFService.create(clientePF, page, limit)
+        await ClientPFService.create(Cliente, page, limit)
         message = "Cliente cadastrado com sucesso!"
         res.render("components/feedback/feedback.ejs",({
             message:message
@@ -29,7 +29,7 @@ const create = async (req, res, next) => {
         //     message:message,
         // }))
     }
-} // End Create New ClientePF
+} // End Create New Cliente
 
 const readByUID = (req, res, next) => {
     const uid = req.params;
